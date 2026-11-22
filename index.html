@@ -4,217 +4,285 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bryson Sikanyika | Cybersecurity Analyst, CEH</title>
-<meta name="description" content="Bryson Sikanyika is a Certified Ethical Hacker (CEH) based in Zambia, working on vulnerability assessment, penetration testing, information security policy and GRC.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2314202B'/%3E%3Crect x='15' y='6' width='2' height='20' fill='%23E8A317'/%3E%3C/svg%3E">
+<meta name="description" content="Bryson Sikanyika is a Certified Ethical Hacker (CEH) in Zambia working on vulnerability assessment, penetration testing, information security policy and GRC.">
+<meta property="og:title" content="Bryson Sikanyika | Cybersecurity Analyst, CEH">
+<meta property="og:description" content="Security fails in two places: the technical gaps attackers exploit, and the policies nobody follows. I focus on both.">
+<meta property="og:image" content="https://brysonsikanyika.github.io/bryson.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2305070C'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='900' font-size='16' text-anchor='middle' fill='%23F2B33D'%3EB%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #F3F5F7;
-    --ink: #14202B;
-    --steel: #556574;
-    --rule: #D3DAE1;
-    --signal: #E8A317;
-    --teal: #0F5C63;
-    --display: "Archivo", "Arial Narrow", sans-serif;
-    --body: "Source Serif 4", Georgia, serif;
-    --measure: 36rem;
+    --void: #05070C;
+    --navy: #0A1220;
+    --glass: rgba(16, 26, 42, 0.62);
+    --line: rgba(160, 185, 215, 0.14);
+    --text: #E7EDF5;
+    --muted: #8D9DB3;
+    --amber: #F2B33D;
+    --cyan: #5BC8E8;
+    --display: "Archivo", "Arial Narrow", Arial, sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
   }
   *, *::before, *::after { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
   body {
-    margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--body);
-    font-size: 1.125rem;
-    line-height: 1.65;
+    margin: 0; background: var(--void); color: var(--text);
+    font-family: var(--display); font-size: 1.0625rem; line-height: 1.65;
+    overflow-x: hidden;
   }
-  a { color: var(--teal); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
-  a:hover { text-decoration-thickness: 2px; }
-  :focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; border-radius: 2px; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 4px; }
+  img { max-width: 100%; display: block; }
 
-  .wrap { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+  #net { position: fixed; inset: 0; z-index: 0; pointer-events: none; opacity: .55; }
+  .glow-a, .glow-b { position: fixed; z-index: 0; pointer-events: none; border-radius: 50%; filter: blur(110px); }
+  .glow-a { width: 46rem; height: 46rem; top: -18rem; right: -12rem; background: rgba(242,179,61,.10); }
+  .glow-b { width: 40rem; height: 40rem; bottom: -20rem; left: -14rem; background: rgba(91,200,232,.08); }
+  .page { position: relative; z-index: 1; }
 
-  /* Top bar */
-  .bar {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 1.25rem 1.5rem; gap: 1rem;
+  #progress { position: fixed; top: 0; left: 0; height: 2px; width: 0; z-index: 60;
+    background: linear-gradient(90deg, var(--amber), var(--cyan)); box-shadow: 0 0 12px var(--amber); }
+
+  .wrap { max-width: 74rem; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* Glass nav */
+  .nav { position: sticky; top: .9rem; z-index: 50; margin-top: .9rem; }
+  .nav .bar {
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: .7rem .8rem .7rem 1.1rem; border: 1px solid var(--line); border-radius: 14px;
+    background: rgba(8, 13, 22, .72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
   }
-  .mark {
-    font-family: var(--display); font-weight: 800; font-stretch: 100%;
-    font-size: 1rem; letter-spacing: 0.01em; color: var(--ink); text-decoration: none;
-  }
-  .bar nav { display: flex; gap: 1.5rem; font-family: var(--display); font-size: 0.95rem; }
-  .bar nav a { color: var(--ink); text-decoration: none; }
-  .bar nav a:hover { text-decoration: underline; }
+  .brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
+  .brand .b { width: 2rem; height: 2rem; border-radius: 8px; display: grid; place-items: center;
+    background: var(--amber); color: var(--void); font-weight: 900; font-size: 1.05rem; }
+  .brand span { font-weight: 700; font-size: .95rem; letter-spacing: .01em; line-height: 1.1; }
+  .links { display: flex; gap: 1.6rem; font-size: .95rem; }
+  .links a { text-decoration: none; color: var(--muted); }
+  .links a:hover { color: var(--text); }
+  .nav .cta { text-decoration: none; font-weight: 600; font-size: .92rem; padding: .5rem .95rem;
+    border: 1px solid rgba(242,179,61,.5); border-radius: 9px; color: var(--amber); }
+  .nav .cta:hover { background: rgba(242,179,61,.1); }
 
   /* Hero */
-  .hero { padding: 4.5rem 0 5rem; border-bottom: 1px solid var(--rule); }
-  .who {
-    font-family: var(--display); font-size: 1.05rem; font-weight: 500;
-    color: var(--steel); margin: 0 0 1.75rem;
+  .hero { min-height: calc(100vh - 6rem); display: grid; grid-template-columns: 1.25fr .75fr;
+    align-items: center; gap: 3rem; padding: 4rem 0 3rem; }
+  .badge { display: inline-flex; align-items: center; gap: .55rem; font-family: var(--mono); font-size: .78rem;
+    color: #9EE6B8; padding: .38rem .8rem; border-radius: 999px; border: 1px solid rgba(110, 220, 150, .3);
+    background: rgba(40, 120, 70, .14); }
+  .badge i { width: .5rem; height: .5rem; border-radius: 50%; background: #6EDC96; box-shadow: 0 0 10px #6EDC96; }
+  .hi { font-size: clamp(2.2rem, 4.6vw, 3.6rem); font-weight: 700; margin: 1.4rem 0 0; line-height: 1; }
+  .name {
+    margin: .2rem 0 0; font-weight: 900; font-stretch: 78%;
+    font-size: clamp(3.4rem, 9vw, 7.4rem); line-height: .92; letter-spacing: -.015em;
+    background: linear-gradient(100deg, #FFFFFF 0%, #F8D58C 45%, var(--amber) 70%, #E0902A 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 0 28px rgba(242,179,61,.28));
   }
-  .who strong { color: var(--ink); font-weight: 700; }
-  .statement {
-    font-family: var(--display);
-    font-weight: 800;
-    font-stretch: 72%;
-    font-size: clamp(2.6rem, 7.2vw, 5.75rem);
-    line-height: 0.98;
-    letter-spacing: -0.01em;
-    margin: 0;
-    max-width: 15ch;
-  }
-  .statement .quiet { color: var(--steel); font-weight: 600; }
-  .lede {
-    max-width: var(--measure);
-    margin: 2rem 0 2.25rem;
-    font-size: 1.2rem;
-  }
-  .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-  .btn {
-    display: inline-block; font-family: var(--display); font-weight: 600; font-size: 1rem;
-    padding: 0.8rem 1.3rem; border-radius: 3px; text-decoration: none;
-    border: 2px solid var(--ink);
-  }
-  .btn.primary { background: var(--ink); color: var(--paper); }
-  .btn.primary:hover { background: var(--teal); border-color: var(--teal); }
-  .btn.secondary { color: var(--ink); }
-  .btn.secondary:hover { background: #E6EBEF; }
+  .role { font-size: clamp(1.35rem, 2.4vw, 1.85rem); font-weight: 700; margin: 1.2rem 0 .6rem; }
+  .role b { color: var(--amber); font-weight: 700; }
+  .sub { color: var(--muted); max-width: 34rem; margin: 0 0 2rem; font-size: 1.1rem; }
+  .btns { display: flex; flex-wrap: wrap; gap: .8rem; }
+  .btn { text-decoration: none; font-weight: 600; padding: .85rem 1.3rem; border-radius: 10px; font-size: 1rem; }
+  .btn.solid { background: var(--text); color: var(--void); }
+  .btn.solid:hover { background: #FFFFFF; box-shadow: 0 0 24px rgba(255,255,255,.25); }
+  .btn.ghost { border: 1px solid var(--line); background: var(--glass); }
+  .btn.ghost:hover { border-color: rgba(242,179,61,.5); }
+  .mini { display: flex; gap: 1.4rem; margin-top: 1.4rem; font-size: .92rem; }
+  .mini a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line); }
+  .mini a:hover { color: var(--text); border-color: var(--amber); }
 
-  /* Two sides */
-  .sides { padding: 5rem 0; border-bottom: 1px solid var(--rule); }
-  .sides h2, .section h2 {
-    font-family: var(--display); font-weight: 750; font-stretch: 85%;
-    font-size: clamp(1.75rem, 3vw, 2.25rem); line-height: 1.1; margin: 0 0 0.5rem;
-  }
-  .sides > .wrap > p { max-width: var(--measure); color: var(--steel); margin: 0 0 3rem; }
-  .split {
-    display: grid; grid-template-columns: 1fr 4px 1fr; gap: 0 3rem;
-  }
-  .seam { background: var(--signal); border-radius: 2px; }
-  .side h3 {
-    font-family: var(--display); font-weight: 800; font-stretch: 110%;
-    font-size: 1.35rem; margin: 0 0 0.25rem;
-  }
-  .side .sub { color: var(--steel); margin: 0 0 1.5rem; font-style: italic; }
-  .side ul { list-style: none; margin: 0; padding: 0; }
-  .side li { padding: 0.9rem 0; border-top: 1px solid var(--rule); }
-  .side li:last-child { border-bottom: 1px solid var(--rule); }
-  .side li b { display: block; font-family: var(--display); font-weight: 650; font-size: 1.05rem; }
-  .side li span { color: var(--steel); font-size: 1rem; }
+  .portrait { position: relative; justify-self: center; width: min(100%, 22rem); }
+  .portrait::before { content: ""; position: absolute; inset: -14%; border-radius: 50%;
+    background: radial-gradient(closest-side, rgba(242,179,61,.28), transparent 70%); z-index: -1; }
+  .portrait .frame { border-radius: 18px; overflow: hidden; border: 1px solid rgba(242,179,61,.45);
+    box-shadow: 0 0 0 6px rgba(242,179,61,.06), 0 30px 80px rgba(0,0,0,.6), 0 0 60px rgba(242,179,61,.18); }
+  .portrait img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; object-position: 50% 30%; filter: saturate(1.05) contrast(1.05); }
+  .portrait .tag { position: absolute; left: -1.2rem; bottom: 1.4rem; font-family: var(--mono); font-size: .75rem;
+    padding: .5rem .75rem; border-radius: 10px; border: 1px solid var(--line); background: rgba(8,13,22,.85);
+    backdrop-filter: blur(8px); }
+  .portrait .tag b { color: var(--amber); }
 
-  /* Generic sections */
-  .section { padding: 4.5rem 0; border-bottom: 1px solid var(--rule); }
-  .section .grid { display: grid; grid-template-columns: 16rem 1fr; gap: 2rem 3rem; }
-  .section .grid > div { max-width: 44rem; }
-  .project h3 {
-    font-family: var(--display); font-weight: 750; font-size: 1.4rem; margin: 0 0 0.35rem; line-height: 1.2;
-  }
-  .meta { color: var(--steel); font-size: 1rem; margin: 0 0 1rem; }
-  .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.25rem 0; padding: 0; list-style: none; }
-  .tags li {
-    font-family: var(--display); font-size: 0.9rem; font-weight: 500;
-    padding: 0.25rem 0.6rem; border: 1px solid var(--rule); border-radius: 3px; background: #FFFFFF;
-  }
+  .strip { display: flex; justify-content: space-between; gap: 1rem; padding: 1.2rem 0 2.5rem;
+    font-family: var(--mono); font-size: .75rem; color: var(--muted); border-bottom: 1px solid var(--line); }
+  .strip span:first-child::after { content: ""; display: inline-block; width: 4rem; height: 1px; background: var(--amber);
+    vertical-align: middle; margin-left: .8rem; }
 
-  .timeline { list-style: none; margin: 0; padding: 0; }
-  .timeline li { padding: 0 0 2rem 1.5rem; border-left: 2px solid var(--rule); position: relative; }
-  .timeline li:last-child { padding-bottom: 0; }
-  .timeline li::before {
-    content: ""; position: absolute; left: -7px; top: 0.45rem;
-    width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--ink);
-  }
-  .timeline h3 { font-family: var(--display); font-weight: 700; font-size: 1.2rem; margin: 0; line-height: 1.3; }
-  .timeline .meta { margin: 0.15rem 0 0.6rem; }
-  .timeline ul { margin: 0; padding-left: 1.1rem; }
-  .timeline ul li { border: 0; padding: 0 0 0.3rem; }
-  .timeline ul li::before { display: none; }
+  /* Stats */
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding: 3.5rem 0;
+    border-bottom: 1px solid var(--line); }
+  .stat .n { font-weight: 900; font-stretch: 80%; font-size: clamp(2.6rem, 5vw, 4rem); line-height: 1; color: var(--text); }
+  .stat .n em { font-style: normal; color: var(--amber); }
+  .stat p { margin: .4rem 0 0; color: var(--muted); max-width: 16rem; }
 
-  .plain { list-style: none; margin: 0; padding: 0; }
-  .plain li { padding: 0.7rem 0; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-  .plain li:last-child { border-bottom: 1px solid var(--rule); }
-  .plain b { font-family: var(--display); font-weight: 650; }
-  .plain span { color: var(--steel); }
+  /* Sections */
+  section.block { padding: 6rem 0; border-bottom: 1px solid var(--line); }
+  .label { font-family: var(--mono); font-size: .8rem; color: var(--amber); margin: 0 0 1.2rem; }
+  .big { font-weight: 800; font-stretch: 82%; font-size: clamp(2.1rem, 4.6vw, 3.8rem); line-height: 1.02;
+    margin: 0 0 1.5rem; max-width: 20ch; letter-spacing: -.01em; }
+  .big .dim { color: #5E6E85; }
+  .lead { color: var(--muted); font-size: 1.15rem; max-width: 40rem; margin: 0; }
 
-  .tools { margin-top: 2rem; }
-  .tools h3 { font-family: var(--display); font-weight: 700; font-size: 1.1rem; margin: 0 0 0.5rem; }
+  .sides { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 3rem; }
+  .panel { border: 1px solid var(--line); border-radius: 18px; padding: 2rem; background: var(--glass);
+    backdrop-filter: blur(10px); position: relative; overflow: hidden; }
+  .panel::after { content: ""; position: absolute; left: 0; top: 0; height: 2px; width: 100%; }
+  .panel.atk::after { background: linear-gradient(90deg, var(--amber), transparent); }
+  .panel.ctl::after { background: linear-gradient(90deg, var(--cyan), transparent); }
+  .panel h3 { margin: 0 0 .2rem; font-size: 1.45rem; font-weight: 800; }
+  .panel .k { margin: 0 0 1.4rem; font-family: var(--mono); font-size: .8rem; }
+  .panel.atk .k { color: var(--amber); } .panel.ctl .k { color: var(--cyan); }
+  .panel ul { list-style: none; margin: 0; padding: 0; }
+  .panel li { padding: .95rem 0; border-top: 1px solid var(--line); }
+  .panel li b { display: block; font-weight: 700; }
+  .panel li span { color: var(--muted); font-size: .97rem; }
+
+  /* Project showcase */
+  .show { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-top: 2.5rem;
+    border: 1px solid var(--line); border-radius: 22px; padding: 3rem; background:
+    radial-gradient(60rem 30rem at 85% 40%, rgba(91,200,232,.10), transparent 60%), var(--glass); }
+  .show h3 { font-weight: 900; font-stretch: 80%; font-size: clamp(2.2rem, 4vw, 3.4rem); line-height: 1; margin: .4rem 0 1rem; }
+  .show .meta { font-family: var(--mono); font-size: .78rem; color: var(--muted); margin: 0; }
+  .show p.d { color: #B8C5D6; margin: 0 0 1.3rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: .5rem; padding: 0; margin: 0 0 1.6rem; list-style: none; }
+  .chips li { font-family: var(--mono); font-size: .76rem; padding: .3rem .65rem; border-radius: 7px;
+    border: 1px solid var(--line); color: #C9D4E3; background: rgba(5,7,12,.5); }
+  .readmore { color: var(--amber); font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(242,179,61,.4); }
+  .readmore:hover { border-color: var(--amber); }
+  .window { border-radius: 16px; border: 1px solid rgba(160,185,215,.22); background: rgba(6,10,18,.85);
+    box-shadow: 0 30px 80px rgba(0,0,0,.55), 0 0 50px rgba(91,200,232,.12); overflow: hidden; }
+  .window .top { display: flex; align-items: center; gap: .4rem; padding: .7rem .9rem; border-bottom: 1px solid var(--line);
+    font-family: var(--mono); font-size: .74rem; color: var(--muted); }
+  .window .top i { width: .55rem; height: .55rem; border-radius: 50%; background: #2A3547; }
+  .window .top span { margin-left: auto; }
+  .window svg { width: 100%; height: auto; display: block; }
+  .window .foot { padding: .6rem .9rem; border-top: 1px solid var(--line); font-family: var(--mono); font-size: .7rem; color: var(--muted); }
+
+  /* Experience */
+  .xp { margin-top: 3rem; display: grid; gap: 1.2rem; }
+  .job { display: grid; grid-template-columns: 13rem 1fr; gap: 2rem; padding: 2rem; border: 1px solid var(--line);
+    border-radius: 18px; background: var(--glass); }
+  .job .when { font-family: var(--mono); font-size: .8rem; color: var(--amber); }
+  .job h3 { margin: 0 0 .15rem; font-size: 1.3rem; font-weight: 800; }
+  .job .org { color: var(--muted); margin: 0 0 .9rem; }
+  .job ul { margin: 0; padding-left: 1.1rem; color: #C2CDDC; }
+  .job li { margin-bottom: .35rem; }
+
+  /* Certifications */
+  .certs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 3rem; }
+  .cert { border: 1px solid var(--line); border-radius: 14px; padding: 1.3rem 1.4rem; background: var(--glass); }
+  .cert.key { border-color: rgba(242,179,61,.5); box-shadow: 0 0 40px rgba(242,179,61,.10); }
+  .cert b { display: block; font-weight: 750; font-size: 1.05rem; }
+  .cert span { color: var(--muted); font-size: .92rem; }
+  .tools { margin-top: 2.5rem; }
+  .tools p { font-family: var(--mono); font-size: .8rem; color: var(--muted); margin: 0 0 .8rem; }
 
   /* Contact */
-  .contact { padding: 5rem 0 3rem; }
-  .contact h2 {
-    font-family: var(--display); font-weight: 800; font-stretch: 72%;
-    font-size: clamp(2.2rem, 5vw, 3.75rem); line-height: 1; margin: 0 0 1.25rem; max-width: 18ch;
-  }
-  .contact p { max-width: var(--measure); margin: 0 0 2rem; }
-  footer { padding: 2rem 1.5rem 3rem; color: var(--steel); font-size: 0.95rem; }
+  .contact { padding: 7rem 0 5rem; text-align: left; }
+  .contact .big { max-width: 16ch; }
+  .contact .btns { margin-top: 2rem; }
+  footer { padding: 2rem 0 3rem; color: var(--muted); font-family: var(--mono); font-size: .75rem;
+    display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 
-  @media (max-width: 52rem) {
-    .split { grid-template-columns: 1fr; gap: 0; }
-    .seam { height: 4px; margin: 2.5rem 0; }
-    .section .grid { grid-template-columns: 1fr; gap: 1.25rem; }
-    .hero { padding: 3rem 0 3.5rem; }
-    .bar nav { gap: 1rem; }
-  }
-  @media (max-width: 30rem) {
-    .bar { flex-direction: column; align-items: flex-start; }
-  }
+  /* Reveal on scroll */
+  .rv { opacity: 1; }
+  .js .rv { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
+  .js .rv.in { opacity: 1; transform: none; }
 
-  /* One orchestrated moment: the seam draws in once on load */
-  @media (prefers-reduced-motion: no-preference) {
-    .seam { transform-origin: top; animation: draw 900ms 250ms cubic-bezier(.2,.7,.2,1) both; }
-    @keyframes draw { from { transform: scaleY(0); } to { transform: scaleY(1); } }
-    @media (max-width: 52rem) {
-      .seam { transform-origin: left; animation-name: drawx; }
-      @keyframes drawx { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-    }
+  @media (max-width: 60rem) {
+    .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 3rem; }
+    .portrait { order: -1; width: min(70%, 15rem); justify-self: start; }
+    .portrait .tag { left: auto; right: -1rem; }
+    .sides, .show { grid-template-columns: 1fr; }
+    .show { padding: 1.8rem; }
+    .job { grid-template-columns: 1fr; gap: .6rem; padding: 1.6rem; }
+    .certs { grid-template-columns: 1fr 1fr; }
+    .links { display: none; }
+  }
+  @media (max-width: 34rem) {
+    .stats { grid-template-columns: 1fr; gap: 1.8rem; }
+    .certs { grid-template-columns: 1fr; }
+    .strip span:last-child { display: none; }
+    section.block { padding: 4.5rem 0; }
+    .brand span { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .js .rv { opacity: 1; transform: none; transition: none; }
+    #net { display: none; }
   }
 </style>
 </head>
 <body>
+<div id="progress" aria-hidden="true"></div>
+<canvas id="net" aria-hidden="true"></canvas>
+<div class="glow-a" aria-hidden="true"></div>
+<div class="glow-b" aria-hidden="true"></div>
 
-<header class="wrap bar">
-  <a class="mark" href="#top">Bryson Sikanyika</a>
-  <nav aria-label="Primary">
-    <a href="#work">Work</a>
-    <a href="#experience">Experience</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<main id="top">
-  <section class="hero">
-    <div class="wrap">
-      <p class="who"><strong>Bryson Sikanyika</strong>, cybersecurity analyst and Certified Ethical Hacker (CEH), Ndola, Zambia</p>
-      <h1 class="statement">Security fails in two places. <span class="quiet">I focus on both.</span></h1>
-      <p class="lede">The technical gaps that attackers exploit, and the policies nobody follows. I find weaknesses in networks, web applications and Linux systems before attackers do, then turn the findings into clear, prioritised fixes and policies that fit how a business actually runs.</p>
-      <div class="actions">
-        <a class="btn primary" href="mailto:brysonsikanyika07@gmail.com">Email me</a>
-        <a class="btn secondary" href="https://www.linkedin.com/in/bryson-sikanyika-351198252/" rel="noopener">View my LinkedIn</a>
-      </div>
+<div class="page">
+  <header class="wrap nav">
+    <div class="bar">
+      <a class="brand" href="#top"><span class="b">B</span><span>Bryson<br>Sikanyika</span></a>
+      <nav class="links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="cta" href="mailto:brysonsikanyika07@gmail.com">Hire me</a>
     </div>
-  </section>
+  </header>
 
-  <section class="sides" id="work" aria-labelledby="sides-title">
-    <div class="wrap">
-      <h2 id="sides-title">Both sides of security</h2>
-      <p>Most candidates bring one side. I bring the attacker's view and the regulator's view together.</p>
-      <div class="split">
-        <div class="side">
+  <main id="top" class="wrap">
+    <section class="hero" aria-label="Introduction">
+      <div>
+        <span class="badge"><i></i>Available for opportunities</span>
+        <p class="hi">Hi, I'm</p>
+        <h1 class="name">Bryson Sikanyika</h1>
+        <p class="role">Cybersecurity Analyst <b>/ CEH</b></p>
+        <p class="sub">I find the weaknesses attackers would use, then turn them into fixes and policies a business can actually follow.</p>
+        <div class="btns">
+          <a class="btn solid" href="#work">Explore my work</a>
+          <a class="btn ghost" href="mailto:brysonsikanyika07@gmail.com">Email me</a>
+        </div>
+        <div class="mini">
+          <a href="https://www.linkedin.com/in/bryson-sikanyika-351198252/" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/Brysonsikanyika" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <figure class="portrait">
+        <div class="frame"><img src="bryson.jpg" alt="Portrait of Bryson Sikanyika" width="640" height="640"></div>
+        <figcaption class="tag"><b>CEH</b> Certified Ethical Hacker</figcaption>
+      </figure>
+    </section>
+
+    <div class="strip" aria-hidden="true"><span>Scroll to explore</span><span>Ndola, Zambia</span></div>
+
+    <div class="stats">
+      <div class="stat rv"><div class="n">CEH</div><p>Certified Ethical Hacker, EC-Council</p></div>
+      <div class="stat rv"><div class="n" data-count="5">5</div><p>Industry certifications across security, networking and data</p></div>
+      <div class="stat rv"><div class="n" data-count="3">3</div><p>Database engines monitored by my AI-DAMS project</p></div>
+    </div>
+
+    <section class="block" id="about" aria-labelledby="about-t">
+      <p class="label rv">/ About</p>
+      <h2 class="big rv" id="about-t">Security fails in two places. <span class="dim">I focus on both.</span></h2>
+      <p class="lead rv">The technical gaps that attackers exploit, and the policies nobody follows. I test networks, web applications and Linux systems the way an attacker would, then map what I find to the controls regulators expect.</p>
+      <div class="sides">
+        <div class="panel atk rv">
           <h3>The technical gaps</h3>
-          <p class="sub">How systems get broken into</p>
+          <p class="k">how systems get broken into</p>
           <ul>
             <li><b>Vulnerability assessment and penetration testing</b><span>Networks, web applications and Linux systems</span></li>
             <li><b>Incident response and security monitoring</b><span>Threat detection, SIEM and SOC workflows</span></li>
             <li><b>Automation and analysis</b><span>Python, Bash and SQL</span></li>
           </ul>
         </div>
-        <div class="seam" aria-hidden="true"></div>
-        <div class="side">
+        <div class="panel ctl rv">
           <h3>The controls</h3>
-          <p class="sub">What organisations must enforce</p>
+          <p class="k">what organisations must enforce</p>
           <ul>
             <li><b>Information security policy and GRC</b><span>IT risk assessment and compliance alignment</span></li>
             <li><b>Financial-services compliance</b><span>Anti-money laundering (AML), PEP screening and mis-selling controls</span></li>
@@ -222,89 +290,179 @@
           </ul>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section" aria-labelledby="project-title">
-    <div class="wrap grid">
-      <h2 id="project-title">Project</h2>
-      <div class="project">
-        <h3>AI-DAMS: AI-Based Database Activity Monitoring System</h3>
-        <p class="meta">Final-year project, Zambia University College of Technology. Prototype.</p>
-        <p>A system that monitors database activity across MySQL, PostgreSQL and SQL Server using change data capture and Kafka streaming. It uses machine learning (Isolation Forest, an LSTM autoencoder and an NLP classifier) to flag anomalous queries and SQL injection attempts, with a React dashboard for security analysts.</p>
-        <ul class="tags" aria-label="Technologies">
-          <li>Python</li><li>SQL</li><li>Docker</li><li>Apache Kafka</li><li>Machine learning</li><li>React</li>
-        </ul>
-        <p><a href="https://github.com/Brysonsikanyika/ai-dams" rel="noopener">See the code on GitHub</a></p>
+    <section class="block" id="work" aria-labelledby="work-t">
+      <p class="label rv">/ Selected work</p>
+      <h2 class="big rv" id="work-t">Watching databases for the attacks that matter.</h2>
+      <div class="show rv">
+        <div>
+          <p class="meta">Final-year project / Prototype</p>
+          <h3>AI-DAMS</h3>
+          <p class="d">An AI-based database activity monitoring system. It streams activity from MySQL, PostgreSQL and SQL Server through Kafka, and uses machine learning (Isolation Forest, an LSTM autoencoder and an NLP classifier) to flag anomalous queries and SQL injection attempts on a React dashboard for analysts.</p>
+          <ul class="chips" aria-label="Technologies">
+            <li>Python</li><li>Kafka</li><li>Docker</li><li>MySQL</li><li>PostgreSQL</li><li>SQL Server</li><li>React</li><li>Machine learning</li>
+          </ul>
+          <a class="readmore" href="https://github.com/Brysonsikanyika/ai-dams" rel="noopener">See the code on GitHub</a>
+        </div>
+        <div class="window" aria-hidden="true">
+          <div class="top"><i></i><i></i><i></i><span>ai-dams / live feed</span></div>
+          <svg viewBox="0 0 480 300" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#5BC8E8" stop-opacity=".0"/><stop offset=".5" stop-color="#5BC8E8" stop-opacity=".7"/><stop offset="1" stop-color="#5BC8E8" stop-opacity=".0"/></linearGradient>
+            </defs>
+            <g fill="none" stroke="#5BC8E8" stroke-width="1.6" opacity=".9">
+              <g transform="translate(40 50)"><ellipse cx="34" cy="10" rx="34" ry="10"/><path d="M0 10v44c0 5.5 15 10 34 10s34-4.5 34-10V10"/><path d="M0 32c0 5.5 15 10 34 10s34-4.5 34-10"/></g>
+              <g transform="translate(40 125)"><ellipse cx="34" cy="10" rx="34" ry="10"/><path d="M0 10v44c0 5.5 15 10 34 10s34-4.5 34-10V10"/><path d="M0 32c0 5.5 15 10 34 10s34-4.5 34-10"/></g>
+              <g transform="translate(40 200)"><ellipse cx="34" cy="10" rx="34" ry="10"/><path d="M0 10v44c0 5.5 15 10 34 10s34-4.5 34-10V10"/><path d="M0 32c0 5.5 15 10 34 10s34-4.5 34-10"/></g>
+            </g>
+            <g font-family="JetBrains Mono, monospace" font-size="10" fill="#8D9DB3">
+              <text x="40" y="44">MySQL</text><text x="40" y="119">PostgreSQL</text><text x="40" y="194">SQL Server</text>
+            </g>
+            <g stroke="url(#g1)" stroke-width="2">
+              <path d="M110 82 C170 82 170 150 230 150"/><path d="M110 157 H230"/><path d="M110 232 C170 232 170 150 230 150"/>
+            </g>
+            <rect x="230" y="122" width="70" height="56" rx="10" fill="#0A1220" stroke="#5BC8E8" stroke-width="1.6"/>
+            <text x="265" y="147" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#E7EDF5">ML</text>
+            <text x="265" y="162" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#8D9DB3">models</text>
+            <path d="M300 150 H330" stroke="#5BC8E8" stroke-width="1.6"/>
+            <g transform="translate(330 95)">
+              <rect width="125" height="110" rx="10" fill="#0A1220" stroke="#2A3547"/>
+              <rect x="12" y="16" width="70" height="7" rx="3" fill="#2A3547"/>
+              <rect x="12" y="34" width="100" height="7" rx="3" fill="#2A3547"/>
+              <rect x="12" y="52" width="88" height="7" rx="3" fill="#2A3547"/>
+              <rect x="8" y="68" width="109" height="26" rx="6" fill="rgba(242,179,61,.12)" stroke="#F2B33D"/>
+              <circle cx="22" cy="81" r="4" fill="#F2B33D"><animate attributeName="opacity" values="1;.25;1" dur="1.6s" repeatCount="indefinite"/></circle>
+              <text x="32" y="85" font-family="JetBrains Mono, monospace" font-size="9.5" fill="#F2B33D">SQLi flagged</text>
+            </g>
+          </svg>
+          <div class="foot">Concept illustration of the AI-DAMS pipeline</div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section" id="experience" aria-labelledby="exp-title">
-    <div class="wrap grid">
-      <h2 id="exp-title">Experience</h2>
-      <div>
-        <ol class="timeline" reversed>
-          <li>
-            <h3>Founder, Brysec</h3>
-            <p class="meta">Early-stage cybersecurity venture, Jul 2024 to present</p>
+    <section class="block" id="experience" aria-labelledby="xp-t">
+      <p class="label rv">/ Experience</p>
+      <h2 class="big rv" id="xp-t">Where I've worked.</h2>
+      <div class="xp">
+        <article class="job rv">
+          <div class="when">Jul 2024 to present</div>
+          <div>
+            <h3>Founder</h3>
+            <p class="org">Brysec, early-stage cybersecurity venture</p>
             <ul>
               <li>Developing service offerings in vulnerability assessment, penetration testing and security policy for Zambian SMEs</li>
               <li>Applying CEH training in lab environments using Kali Linux</li>
             </ul>
-          </li>
-          <li>
-            <h3>Insurance Sales Agent, Prudential Life Assurance Zambia</h3>
-            <p class="meta">Ndola, Mar 2026 to Sep 2026</p>
+          </div>
+        </article>
+        <article class="job rv">
+          <div class="when">Mar 2026 to Sep 2026</div>
+          <div>
+            <h3>Insurance Sales Agent</h3>
+            <p class="org">Prudential Life Assurance Zambia, Ndola</p>
             <ul>
               <li>Advised clients on life and education insurance products</li>
               <li>Trained in and applied regulatory compliance requirements: PIA rules, anti-money laundering (FIC) obligations, PEP screening and mis-selling controls</li>
               <li>Generated leads through LinkedIn, Facebook and WhatsApp prospecting</li>
             </ul>
-          </li>
-        </ol>
+          </div>
+        </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section" aria-labelledby="creds-title">
-    <div class="wrap grid">
-      <h2 id="creds-title">Certifications and education</h2>
-      <div>
-        <ul class="plain">
-          <li><b>Certified Ethical Hacker (CEH)</b><span>EC-Council</span></li>
-          <li><b>Networking Essentials</b><span>Cisco Networking Academy</span></li>
-          <li><b>Data Analytics Essentials</b><span>Cisco Networking Academy</span></li>
-          <li><b>Introduction to Data Science</b><span>Cisco Networking Academy</span></li>
-          <li><b>Operating System Basics</b><span>Cisco Networking Academy</span></li>
-          <li><b>Bachelor of Cyber Security</b><span>Zambia University College of Technology</span></li>
+    <section class="block" id="certifications" aria-labelledby="c-t">
+      <p class="label rv">/ Certifications and education</p>
+      <h2 class="big rv" id="c-t">Credentials.</h2>
+      <div class="certs">
+        <div class="cert key rv"><b>Certified Ethical Hacker (CEH)</b><span>EC-Council</span></div>
+        <div class="cert rv"><b>Networking Essentials</b><span>Cisco Networking Academy</span></div>
+        <div class="cert rv"><b>Data Analytics Essentials</b><span>Cisco Networking Academy</span></div>
+        <div class="cert rv"><b>Introduction to Data Science</b><span>Cisco Networking Academy</span></div>
+        <div class="cert rv"><b>Operating System Basics</b><span>Cisco Networking Academy</span></div>
+        <div class="cert rv"><b>Bachelor of Cyber Security</b><span>Zambia University College of Technology</span></div>
+      </div>
+      <div class="tools rv">
+        <p>Tools I work with</p>
+        <ul class="chips">
+          <li>Kali Linux</li><li>Wireshark</li><li>Splunk</li><li>Linux</li><li>Docker</li><li>Apache Kafka</li><li>Python</li><li>Bash</li><li>SQL</li>
         </ul>
-        <div class="tools">
-          <h3>Tools I work with</h3>
-          <ul class="tags" aria-label="Tools">
-            <li>Kali Linux</li><li>Wireshark</li><li>Splunk</li><li>Linux</li><li>Docker</li><li>Apache Kafka</li><li>Python</li><li>Bash</li><li>SQL</li>
-          </ul>
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="contact" id="contact" aria-labelledby="contact-title">
-    <div class="wrap">
-      <h2 id="contact-title">Hiring for security, GRC or IT audit?</h2>
-      <p>I'm open to Cybersecurity Analyst, Information Security Analyst, SOC, GRC and IT Audit roles in the Copperbelt or Lusaka, hybrid or remote.</p>
-      <div class="actions">
-        <a class="btn primary" href="mailto:brysonsikanyika07@gmail.com">brysonsikanyika07@gmail.com</a>
-        <a class="btn secondary" href="https://www.linkedin.com/in/bryson-sikanyika-351198252/" rel="noopener">LinkedIn</a>
-        <a class="btn secondary" href="https://github.com/Brysonsikanyika" rel="noopener">GitHub</a>
+    <section class="contact" id="contact" aria-labelledby="ct-t">
+      <p class="label rv">/ Contact</p>
+      <h2 class="big rv" id="ct-t">Hiring for security, GRC or IT audit?</h2>
+      <p class="lead rv">I'm open to Cybersecurity Analyst, Information Security Analyst, SOC, GRC and IT Audit roles in the Copperbelt or Lusaka, hybrid or remote.</p>
+      <div class="btns rv">
+        <a class="btn solid" href="mailto:brysonsikanyika07@gmail.com">brysonsikanyika07@gmail.com</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/bryson-sikanyika-351198252/" rel="noopener">LinkedIn</a>
+        <a class="btn ghost" href="https://github.com/Brysonsikanyika" rel="noopener">GitHub</a>
       </div>
-    </div>
-  </section>
-</main>
+    </section>
+  </main>
 
-<footer class="wrap">
-  <p>Bryson Sikanyika, Ndola, Zambia</p>
-</footer>
+  <footer class="wrap"><span>Bryson Sikanyika</span><span>Ndola, Zambia</span></footer>
+</div>
 
+<script>
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.classList.add('js');
+
+  // Scroll progress bar
+  var bar = document.getElementById('progress');
+  function onScroll() {
+    var h = document.documentElement;
+    var max = h.scrollHeight - h.clientHeight;
+    bar.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + '%';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Reveal on scroll
+  var items = document.querySelectorAll('.rv');
+  if (reduce || !('IntersectionObserver' in window)) {
+    items.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    items.forEach(function (el) { io.observe(el); });
+  }
+
+  // Background: a quiet node network
+  if (reduce) return;
+  var c = document.getElementById('net'), ctx = c.getContext('2d');
+  var dpr = Math.min(window.devicePixelRatio || 1, 2), W, H, pts = [];
+  function size() {
+    W = c.width = innerWidth * dpr; H = c.height = innerHeight * dpr;
+    c.style.width = innerWidth + 'px'; c.style.height = innerHeight + 'px';
+    var n = Math.round(Math.min(70, (innerWidth * innerHeight) / 22000));
+    pts = [];
+    for (var i = 0; i < n; i++) pts.push({ x: Math.random() * W, y: Math.random() * H,
+      vx: (Math.random() - .5) * .18 * dpr, vy: (Math.random() - .5) * .18 * dpr });
+  }
+  size(); addEventListener('resize', size);
+  var link = 140 * dpr;
+  function frame() {
+    ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < pts.length; i++) {
+      var p = pts[i]; p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > W) p.vx *= -1; if (p.y < 0 || p.y > H) p.vy *= -1;
+      for (var j = i + 1; j < pts.length; j++) {
+        var q = pts[j], dx = p.x - q.x, dy = p.y - q.y, d = Math.sqrt(dx * dx + dy * dy);
+        if (d < link) { ctx.strokeStyle = 'rgba(141,157,179,' + (0.16 * (1 - d / link)) + ')'; ctx.lineWidth = dpr;
+          ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke(); }
+      }
+      ctx.fillStyle = 'rgba(242,179,61,.55)'; ctx.beginPath(); ctx.arc(p.x, p.y, 1.3 * dpr, 0, 6.283); ctx.fill();
+    }
+    requestAnimationFrame(frame);
+  }
+  frame();
+})();
+</script>
 </body>
 </html>
