@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bryson Sikanyika | Cybersecurity Analyst, CEH</title>
+<meta name="description" content="Bryson Sikanyika is a Certified Ethical Hacker (CEH) based in Zambia, working on vulnerability assessment, penetration testing, information security policy and GRC.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2314202B'/%3E%3Crect x='15' y='6' width='2' height='20' fill='%23E8A317'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F3F5F7;
+    --ink: #14202B;
+    --steel: #556574;
+    --rule: #D3DAE1;
+    --signal: #E8A317;
+    --teal: #0F5C63;
+    --display: "Archivo", "Arial Narrow", sans-serif;
+    --body: "Source Serif 4", Georgia, serif;
+    --measure: 36rem;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1.125rem;
+    line-height: 1.65;
+  }
+  a { color: var(--teal); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 3px solid var(--signal); outline-offset: 3px; border-radius: 2px; }
+
+  .wrap { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* Top bar */
+  .bar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.25rem 1.5rem; gap: 1rem;
+  }
+  .mark {
+    font-family: var(--display); font-weight: 800; font-stretch: 100%;
+    font-size: 1rem; letter-spacing: 0.01em; color: var(--ink); text-decoration: none;
+  }
+  .bar nav { display: flex; gap: 1.5rem; font-family: var(--display); font-size: 0.95rem; }
+  .bar nav a { color: var(--ink); text-decoration: none; }
+  .bar nav a:hover { text-decoration: underline; }
+
+  /* Hero */
+  .hero { padding: 4.5rem 0 5rem; border-bottom: 1px solid var(--rule); }
+  .who {
+    font-family: var(--display); font-size: 1.05rem; font-weight: 500;
+    color: var(--steel); margin: 0 0 1.75rem;
+  }
+  .who strong { color: var(--ink); font-weight: 700; }
+  .statement {
+    font-family: var(--display);
+    font-weight: 800;
+    font-stretch: 72%;
+    font-size: clamp(2.6rem, 7.2vw, 5.75rem);
+    line-height: 0.98;
+    letter-spacing: -0.01em;
+    margin: 0;
+    max-width: 15ch;
+  }
+  .statement .quiet { color: var(--steel); font-weight: 600; }
+  .lede {
+    max-width: var(--measure);
+    margin: 2rem 0 2.25rem;
+    font-size: 1.2rem;
+  }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+  .btn {
+    display: inline-block; font-family: var(--display); font-weight: 600; font-size: 1rem;
+    padding: 0.8rem 1.3rem; border-radius: 3px; text-decoration: none;
+    border: 2px solid var(--ink);
+  }
+  .btn.primary { background: var(--ink); color: var(--paper); }
+  .btn.primary:hover { background: var(--teal); border-color: var(--teal); }
+  .btn.secondary { color: var(--ink); }
+  .btn.secondary:hover { background: #E6EBEF; }
+
+  /* Two sides */
+  .sides { padding: 5rem 0; border-bottom: 1px solid var(--rule); }
+  .sides h2, .section h2 {
+    font-family: var(--display); font-weight: 750; font-stretch: 85%;
+    font-size: clamp(1.75rem, 3vw, 2.25rem); line-height: 1.1; margin: 0 0 0.5rem;
+  }
+  .sides > .wrap > p { max-width: var(--measure); color: var(--steel); margin: 0 0 3rem; }
+  .split {
+    display: grid; grid-template-columns: 1fr 4px 1fr; gap: 0 3rem;
+  }
+  .seam { background: var(--signal); border-radius: 2px; }
+  .side h3 {
+    font-family: var(--display); font-weight: 800; font-stretch: 110%;
+    font-size: 1.35rem; margin: 0 0 0.25rem;
+  }
+  .side .sub { color: var(--steel); margin: 0 0 1.5rem; font-style: italic; }
+  .side ul { list-style: none; margin: 0; padding: 0; }
+  .side li { padding: 0.9rem 0; border-top: 1px solid var(--rule); }
+  .side li:last-child { border-bottom: 1px solid var(--rule); }
+  .side li b { display: block; font-family: var(--display); font-weight: 650; font-size: 1.05rem; }
+  .side li span { color: var(--steel); font-size: 1rem; }
+
+  /* Generic sections */
+  .section { padding: 4.5rem 0; border-bottom: 1px solid var(--rule); }
+  .section .grid { display: grid; grid-template-columns: 16rem 1fr; gap: 2rem 3rem; }
+  .section .grid > div { max-width: 44rem; }
+  .project h3 {
+    font-family: var(--display); font-weight: 750; font-size: 1.4rem; margin: 0 0 0.35rem; line-height: 1.2;
+  }
+  .meta { color: var(--steel); font-size: 1rem; margin: 0 0 1rem; }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.25rem 0; padding: 0; list-style: none; }
+  .tags li {
+    font-family: var(--display); font-size: 0.9rem; font-weight: 500;
+    padding: 0.25rem 0.6rem; border: 1px solid var(--rule); border-radius: 3px; background: #FFFFFF;
+  }
+
+  .timeline { list-style: none; margin: 0; padding: 0; }
+  .timeline li { padding: 0 0 2rem 1.5rem; border-left: 2px solid var(--rule); position: relative; }
+  .timeline li:last-child { padding-bottom: 0; }
+  .timeline li::before {
+    content: ""; position: absolute; left: -7px; top: 0.45rem;
+    width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 2px solid var(--ink);
+  }
+  .timeline h3 { font-family: var(--display); font-weight: 700; font-size: 1.2rem; margin: 0; line-height: 1.3; }
+  .timeline .meta { margin: 0.15rem 0 0.6rem; }
+  .timeline ul { margin: 0; padding-left: 1.1rem; }
+  .timeline ul li { border: 0; padding: 0 0 0.3rem; }
+  .timeline ul li::before { display: none; }
+
+  .plain { list-style: none; margin: 0; padding: 0; }
+  .plain li { padding: 0.7rem 0; border-top: 1px solid var(--rule); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .plain li:last-child { border-bottom: 1px solid var(--rule); }
+  .plain b { font-family: var(--display); font-weight: 650; }
+  .plain span { color: var(--steel); }
+
+  .tools { margin-top: 2rem; }
+  .tools h3 { font-family: var(--display); font-weight: 700; font-size: 1.1rem; margin: 0 0 0.5rem; }
+
+  /* Contact */
+  .contact { padding: 5rem 0 3rem; }
+  .contact h2 {
+    font-family: var(--display); font-weight: 800; font-stretch: 72%;
+    font-size: clamp(2.2rem, 5vw, 3.75rem); line-height: 1; margin: 0 0 1.25rem; max-width: 18ch;
+  }
+  .contact p { max-width: var(--measure); margin: 0 0 2rem; }
+  footer { padding: 2rem 1.5rem 3rem; color: var(--steel); font-size: 0.95rem; }
+
+  @media (max-width: 52rem) {
+    .split { grid-template-columns: 1fr; gap: 0; }
+    .seam { height: 4px; margin: 2.5rem 0; }
+    .section .grid { grid-template-columns: 1fr; gap: 1.25rem; }
+    .hero { padding: 3rem 0 3.5rem; }
+    .bar nav { gap: 1rem; }
+  }
+  @media (max-width: 30rem) {
+    .bar { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* One orchestrated moment: the seam draws in once on load */
+  @media (prefers-reduced-motion: no-preference) {
+    .seam { transform-origin: top; animation: draw 900ms 250ms cubic-bezier(.2,.7,.2,1) both; }
+    @keyframes draw { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+    @media (max-width: 52rem) {
+      .seam { transform-origin: left; animation-name: drawx; }
+      @keyframes drawx { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="wrap bar">
+  <a class="mark" href="#top">Bryson Sikanyika</a>
+  <nav aria-label="Primary">
+    <a href="#work">Work</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <p class="who"><strong>Bryson Sikanyika</strong>, cybersecurity analyst and Certified Ethical Hacker (CEH), Ndola, Zambia</p>
+      <h1 class="statement">Security fails in two places. <span class="quiet">I focus on both.</span></h1>
+      <p class="lede">The technical gaps that attackers exploit, and the policies nobody follows. I find weaknesses in networks, web applications and Linux systems before attackers do, then turn the findings into clear, prioritised fixes and policies that fit how a business actually runs.</p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:brysonsikanyika07@gmail.com">Email me</a>
+        <a class="btn secondary" href="https://www.linkedin.com/in/bryson-sikanyika-351198252/" rel="noopener">View my LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sides" id="work" aria-labelledby="sides-title">
+    <div class="wrap">
+      <h2 id="sides-title">Both sides of security</h2>
+      <p>Most candidates bring one side. I bring the attacker's view and the regulator's view together.</p>
+      <div class="split">
+        <div class="side">
+          <h3>The technical gaps</h3>
+          <p class="sub">How systems get broken into</p>
+          <ul>
+            <li><b>Vulnerability assessment and penetration testing</b><span>Networks, web applications and Linux systems</span></li>
+            <li><b>Incident response and security monitoring</b><span>Threat detection, SIEM and SOC workflows</span></li>
+            <li><b>Automation and analysis</b><span>Python, Bash and SQL</span></li>
+          </ul>
+        </div>
+        <div class="seam" aria-hidden="true"></div>
+        <div class="side">
+          <h3>The controls</h3>
+          <p class="sub">What organisations must enforce</p>
+          <ul>
+            <li><b>Information security policy and GRC</b><span>IT risk assessment and compliance alignment</span></li>
+            <li><b>Financial-services compliance</b><span>Anti-money laundering (AML), PEP screening and mis-selling controls</span></li>
+            <li><b>IT audit</b><span>Building my skills as internal audit takes on more cyber, governance and AI risk</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="project-title">
+    <div class="wrap grid">
+      <h2 id="project-title">Project</h2>
+      <div class="project">
+        <h3>AI-DAMS: AI-Based Database Activity Monitoring System</h3>
+        <p class="meta">Final-year project, Zambia University College of Technology. Prototype.</p>
+        <p>A system that monitors database activity across MySQL, PostgreSQL and SQL Server using change data capture and Kafka streaming. It uses machine learning (Isolation Forest, an LSTM autoencoder and an NLP classifier) to flag anomalous queries and SQL injection attempts, with a React dashboard for security analysts.</p>
+        <ul class="tags" aria-label="Technologies">
+          <li>Python</li><li>SQL</li><li>Docker</li><li>Apache Kafka</li><li>Machine learning</li><li>React</li>
+        </ul>
+        <p><a href="https://github.com/Brysonsikanyika/ai-dams" rel="noopener">See the code on GitHub</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience" aria-labelledby="exp-title">
+    <div class="wrap grid">
+      <h2 id="exp-title">Experience</h2>
+      <div>
+        <ol class="timeline" reversed>
+          <li>
+            <h3>Founder, Brysec</h3>
+            <p class="meta">Early-stage cybersecurity venture, Jul 2024 to present</p>
+            <ul>
+              <li>Developing service offerings in vulnerability assessment, penetration testing and security policy for Zambian SMEs</li>
+              <li>Applying CEH training in lab environments using Kali Linux</li>
+            </ul>
+          </li>
+          <li>
+            <h3>Insurance Sales Agent, Prudential Life Assurance Zambia</h3>
+            <p class="meta">Ndola, Mar 2026 to Sep 2026</p>
+            <ul>
+              <li>Advised clients on life and education insurance products</li>
+              <li>Trained in and applied regulatory compliance requirements: PIA rules, anti-money laundering (FIC) obligations, PEP screening and mis-selling controls</li>
+              <li>Generated leads through LinkedIn, Facebook and WhatsApp prospecting</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="creds-title">
+    <div class="wrap grid">
+      <h2 id="creds-title">Certifications and education</h2>
+      <div>
+        <ul class="plain">
+          <li><b>Certified Ethical Hacker (CEH)</b><span>EC-Council</span></li>
+          <li><b>Networking Essentials</b><span>Cisco Networking Academy</span></li>
+          <li><b>Data Analytics Essentials</b><span>Cisco Networking Academy</span></li>
+          <li><b>Introduction to Data Science</b><span>Cisco Networking Academy</span></li>
+          <li><b>Operating System Basics</b><span>Cisco Networking Academy</span></li>
+          <li><b>Bachelor of Cyber Security</b><span>Zambia University College of Technology</span></li>
+        </ul>
+        <div class="tools">
+          <h3>Tools I work with</h3>
+          <ul class="tags" aria-label="Tools">
+            <li>Kali Linux</li><li>Wireshark</li><li>Splunk</li><li>Linux</li><li>Docker</li><li>Apache Kafka</li><li>Python</li><li>Bash</li><li>SQL</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <h2 id="contact-title">Hiring for security, GRC or IT audit?</h2>
+      <p>I'm open to Cybersecurity Analyst, Information Security Analyst, SOC, GRC and IT Audit roles in the Copperbelt or Lusaka, hybrid or remote.</p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:brysonsikanyika07@gmail.com">brysonsikanyika07@gmail.com</a>
+        <a class="btn secondary" href="https://www.linkedin.com/in/bryson-sikanyika-351198252/" rel="noopener">LinkedIn</a>
+        <a class="btn secondary" href="https://github.com/Brysonsikanyika" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p>Bryson Sikanyika, Ndola, Zambia</p>
+</footer>
+
+</body>
+</html>
